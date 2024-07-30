@@ -1,2 +1,6 @@
 # Aula 1 - Python Fluente
-## Anotações:
+
+## Anotações
+
+    - Item1:
+    - Item2:
