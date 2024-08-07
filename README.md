@@ -1,4 +1,4 @@
-# Aula 1 - Python Fluente
+# Aula 1 - Python Fluente - Prof. Luciano Ramalho
 
 ## Anotações
 
