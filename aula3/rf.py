@@ -8,36 +8,36 @@
 Please provide words to search.
 
 >>> main(['cruzeiro']) # doctest: +NORMALIZE_WHITESPACE
-U+20A2 N{CRUZEIRO SIGN} CRUZEIRO SIGN
+U+20A2      ₢       CRUZEIRO SIGN
 
 >>> search(['cat'])  # doctest: +NORMALIZE_WHITESPACE
-(41654, 'YI SYLLABLE CAT')
-(52289, 'HANGUL SYLLABLE CAT')
-(66028, 'PHAISTOS DISC SIGN CAT')
-(128008, 'CAT')
-(128049, 'CAT FACE')
-(128568, 'GRINNING CAT FACE WITH SMILING EYES')
-(128569, 'CAT FACE WITH TEARS OF JOY')
-(128570, 'SMILING CAT FACE WITH OPEN MOUTH')
-(128571, 'SMILING CAT FACE WITH HEART-SHAPED EYES')
-(128572, 'CAT FACE WITH WRY SMILE')
-(128573, 'KISSING CAT FACE WITH CLOSED EYES')
-(128574, 'POUTING CAT FACE')
-(128575, 'CRYING CAT FACE')
-(128576, 'WEARY CAT FACE')
+U+A2B6      ꊶ      YI SYLLABLE CAT
+U+CC41      챁      HANGUL SYLLABLE CAT
+U+101EC     𐇬       PHAISTOS DISC SIGN CAT
+U+1F408     🐈      CAT
+U+1F431     🐱      CAT FACE
+U+1F638     😸      GRINNING CAT FACE WITH SMILING EYES
+U+1F639     😹      CAT FACE WITH TEARS OF JOY
+U+1F63A     😺      SMILING CAT FACE WITH OPEN MOUTH
+U+1F63B     😻      SMILING CAT FACE WITH HEART-SHAPED EYES
+U+1F63C     😼      CAT FACE WITH WRY SMILE
+U+1F63D     😽      KISSING CAT FACE WITH CLOSED EYES
+U+1F63E     😾      POUTING CAT FACE
+U+1F63F     😿      CRYING CAT FACE
+U+1F640     🙀      WEARY CAT FACE
 
 '''
 import sys
 import unicodedata
 
-def search(query: list[str], first=32, last = sys.maxunicode ) -> None:
+def search(query: list[str], first=32, last=sys.maxunicode ) -> None:
     query = ' '.join(query).replace('-',' ').split()
     query = {word.upper() for word in query}
-    for code in range(32,  +1):
+    for code in range(first, last + 1):
         char = chr(code)
         name = unicodedata.name(char, None)
         if name is None:
-            pass
+            continue
         name = name.replace('-',' ')
         name = set(name.split())
         if query <= name:
@@ -50,6 +50,5 @@ def main(args: list[str]) -> None:
         print('Please provide words to search.')
 
 if __name__ == '__main__':
-    import sys
     main(sys.argv[1:])
    
