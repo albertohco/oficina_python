@@ -26,6 +26,11 @@ U+1F63E     😾      POUTING CAT FACE
 U+1F63F     😿      CRYING CAT FACE
 U+1F640     🙀      WEARY CAT FACE
 
+>>> search(['cat', 'eyes'])  # doctest: +NORMALIZE_WHITESPACE
+U+1F638	    😸	    GRINNING CAT FACE WITH SMILING EYES
+U+1F63B	    😻	    SMILING CAT FACE WITH HEART-SHAPED EYES
+U+1F63D	    😽	    KISSING CAT FACE WITH CLOSED EYES
+
 '''
 import sys
 import unicodedata
