@@ -40,14 +40,14 @@ from unicodedata import name
 
 def buscar(consulta):
     consulta = consulta.replace('-', ' ')
-    palavras = frozenset(consulta.split())
+    palavras = set(consulta.split())
     for cod in range(32, sys.maxunicode + 1):
         car = chr(cod)
         nome = name(car, None)
         if nome is None:
             continue
-        nome = nome.replace('-', ' ').split()
-        if palavras <= frozenset(nome):
+        nome1 = nome.replace('-', ' ').split()
+        if palavras <= set(nome1):
             yield (cod, nome)
 
 def main():
